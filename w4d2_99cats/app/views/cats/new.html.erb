@@ -1,0 +1,35 @@
+<h2>Add a new cat!</h2>
+
+
+<%= render "form", cat: Cat.new %>
+<!-- <form class="" method="POST" action="/cats">
+  <label for="name">Name</label>
+  <input id='name' type="text" name="cat[name]">
+  <br>
+
+  <label for="Sex">Sex</label>
+  <input type="radio" name="cat[sex]" value="M">Male
+  <input type="radio" name="cat[sex]" value="F">Female
+  <br>
+
+  <label for="color">Color</label>
+  <select id='color' name="cat[color]">
+    <option selected disabled>--Please Select--</option>
+    <% Cat.colors.each do |color|%>
+      <option value="<%=color%>"><%=color.capitalize%></option>
+    <% end %>
+  </select>
+  <br>
+
+  <label for="date">Birth Date</label>
+  <input type="date" name="cat[birth_date]" />
+  <br><br>
+
+  <label for="description">Description</label>
+  <br>
+  <textarea id='description' name="cat[description]" rows="8" cols="40"></textarea>
+
+  <br>
+
+  <input type="submit" value="Submit">
+</form> -->

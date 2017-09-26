@@ -1,0 +1,56 @@
+<h1> <%= @cat.name.capitalize %> </h1>
+<!-- <h3> Birth Date: <%= @cat.birth_date %> </h3>
+<h3> Color: <%= @cat.color %>  </h3>
+<h3> Sex: <%= @cat.sex %>  </h3>
+<h3> Description:</h3>
+<p> <%= @cat.description %> </p> -->
+
+<table>
+  <tr>
+    <th>Birth Date</th>
+    <th>Color</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <th><%= @cat.birth_date.strftime("%B %e %Y") %></th>
+    <th> <%= @cat.color %></th>
+    <th><%= @cat.sex %></th>
+    <th class='description'><%= @cat.description %></th>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+<table>
+
+    <tr><th colspan="2">Rental Requests</th></tr>
+
+  <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+  </tr>
+
+  <% @cat.cat_rental_requests.order(:start_date).each do |request| %>
+  <tr>
+    <th><%= request.start_date %></th>
+    <th><%= request.end_date %></th>
+    <th> <form action="../cat_rental_requests/<%=request.id%>" method="POST">
+        <input type="hidden" name="_method" value="PATCH">
+        <% if request.pending? %>
+          <input type="submit" value="APPROVE">
+        <% elsif request.approved? %>
+          APPROVED
+        <% else %>
+          DENIED
+        <% end %>
+    </form>   </th>
+  </tr>
+  <% end %>
+</table>
+
+
+
+<br>
+<a href="/cats">BACK TO LIST OF CATS</a>

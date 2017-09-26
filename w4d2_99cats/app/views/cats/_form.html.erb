@@ -1,0 +1,40 @@
+
+
+<form class="" method="POST" action="<%= cat.id ? cat_url(cat) : '/cats' %>">
+  
+  <% if cat.id %>
+    <input type="hidden" name="_method" value="PATCH" />
+  <% end %>
+
+
+  <label for="name">Name</label>
+  <input id='name' type="text" name="cat[name]" value="<%=cat.name%>">
+  <br>
+
+  <label for="Sex">Sex</label>
+  <input type="radio" name="cat[sex]" value="M" <%= (cat.sex == 'M') ? "checked" : "" %>>Male
+  <input type="radio" name="cat[sex]" value="F" <%= (cat.sex == 'F') ? "checked" : "" %>>Female
+  <br>
+
+  <label for="color">Color</label>
+  <select id='color' name="cat[color]">
+    <option selected disabled>--Please Select--</option>
+    <% Cat.colors.each do |color|%>
+      <option value="<%=color%>" <%= cat.color == color ? "selected" : "" %> ><%=color.capitalize%></option>
+    <% end %>
+  </select>
+  <br>
+
+  <label for="date">Birth Date</label>
+  <input type="date" name="cat[birth_date]" value= '<%= cat.birth_date%>' />
+  <br><br>
+
+  <label for="description">Description</label>
+  <br>
+  <textarea id='description' name="cat[description]" rows="8" cols="40"><%= cat.description %>
+  </textarea>
+
+  <br>
+
+  <input type="submit" value="Submit">
+</form>

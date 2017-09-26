@@ -1,0 +1,22 @@
+
+
+<form class="" method="POST" action="/cat_rental_requests" >
+  <label for="cat">Cat</label>
+  <select id='cat' name="cat_rental[cat_id]">
+    <option selected disabled>--Please Select--</option>
+    <% @cats.each do |cat| %>
+      <option value='<%= cat.id%>'><%=cat.name%></option>
+    <% end %>
+  </select>
+  <br>
+
+  <label for="start">Start Date</label>
+  <input id='start' type="date" name="cat_rental[start_date]">
+
+  <label for="end">End Date</label>
+  <input id='end' type="date" name="cat_rental[end_date]">
+  <br>
+
+  <input type="submit" value="Submit">
+
+</form>
